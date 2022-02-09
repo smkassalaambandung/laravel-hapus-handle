@@ -16,7 +16,7 @@ class Pengguna extends Model
         parent::boot();
         self::deleting(function($pengguna){
             if($pengguna->buku->count() > 0){
-                Alert::error('Gagal Menghapus', 'Data Pengguna Masih Memiliki Buku');
+                Alert::error('Gagal Menghapus', 'Data '.$pengguna->nama.' Masih Memiliki Buku');
                 return false;
             }
         });

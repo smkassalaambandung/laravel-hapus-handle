@@ -88,10 +88,11 @@ class PenggunaController extends Controller
      */
     public function destroy($id)
     {
+        $pengguna = Pengguna::find($id);
         if (!Pengguna::destroy($id)) {
             return redirect()->back();
         } else {
-            Alert::success('Berhasil', 'Mengapus Data');
+            Alert::success('Berhasil', 'Mengapus Data '. $pengguna->nama);
             return redirect()->back();
         }
 
