@@ -18,7 +18,7 @@ class PenggunaController extends Controller
     public function index()
     {
         // Alert::success('Success Title', 'Success Message');
-        $pengguna = Pengguna::all();
+        $pengguna = Pengguna::orderBy('id', 'desc')->get();
         return view('pengguna', compact('pengguna'));
     }
 
